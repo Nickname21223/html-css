@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <div>
+                <input type="text" name="id" id="id" required placeholder="아이디">
+                <label for="id">@naver.com</label>
+            </div>
+            <div>
+                <input type="password" name="password" id="password" required placeholder="비밀번호">
+            </div>
+            <div>
+                <input type="email" name="email" id="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="text" name="name" id="name" required placeholder="이름">
+            </div>
+
+            <div>
+                <input type="text" name="birthdate" required placeholder="생년월일 8자리">
+            </div>
+
+            <div>
+                <button type="button">통신사 선택</button>
+            </div>
+
+            <ul>
+                <li><button type="button">SKT</button></li>
+                <li><button type="button">KT</button></li>
+                <li><button type="button">LG U+</button></li>
+                <li><button type="button">SKT 알뜰폰</button></li>
+                <li><button type="button">KT 알뜰폰</button></li>
+                <li><button type="button">LG U+ 알뜰폰</button></li>
+            </ul>
+
+            <ul>
+                <li><input type="radio" name="gender" value="male" required> 남자</li>
+                <li><input type="radio" name="gender" value="female" required> 여자</li>
+            </ul>
+
+            <ul>
+                <li><input type="radio" name="nationality" value="korean" required> 내국인</li>
+                <li><input type="radio" name="nationality" value="foreigner" required> 외국인</li>
+            </ul>
+
+            <div>
+                <input type="text" name="phonenumber" id="phonenumber" required placeholder="전화번호">
+            </div>
+
+            <div>
+                <button type="submit">제출</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
