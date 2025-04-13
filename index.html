@@ -1,66 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form UI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    form {
+      width: 320px;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+
+      background-color: white;
+
+      margin-bottom: 3px;
+    }
+
+    .littlebox {
+      border: 1px solid #ccc;
+
+      background-color: white;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+    
+    .domain-label {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input[type="password"],
+    input[type="email"],
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+
+    }
+
+    button {
+      border: 1px solid #999;
+      border-radius: 5px;
+      background: #eee;
+      cursor: pointer;
+    }
+
+    .tel-select {
+        display: block;
+        padding: 2px 20px;
+      margin: 5px auto;
+    }
+
+    .tel-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 5px;
+    }
+
+.radio-row {
+    display: flex;
+  justify-content: space-between;
+}
+
+.radio-group {
+  display: flex;
+    margin: 5px;
+}
+/* 기본 라벨 버튼 스타일 */
+.radio-group label {
+  padding: 1px 12px;
+  border: 1px solid black;
+  min-width: 70px;   
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+
+}
+
+/* input 숨김 */
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+/* 선택된 경우 스타일 */
+.radio-group input[type="radio"]:checked + label {
+  border-color: green;
+  color: green;
+  font-weight: bold;
+}
+
+
+    input[type="tel"] {
+      margin-bottom: 5px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: green;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+
+  </style>
 </head>
 <body>
-    <form action="">
-        <div>
-            <div>
-                <input type="text" name="id" id="id" required placeholder="아이디">
-                <label for="id">@naver.com</label>
-            </div>
-            <div>
-                <input type="password" name="password" id="password" required placeholder="비밀번호">
-            </div>
-            <div>
-                <input type="email" name="email" id="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)">
-            </div>
+  <form>
+    <div class="box">
+      <div class="input-wrapper">
+        <input type="text" name="id" placeholder="아이디" required />
+        <span class="domain-label">@naver.com</span>
+      </div>
+      <input type="password" name="password" placeholder="비밀번호" required />
+      <input type="email" name="email" placeholder="[선택]이메일 주소 (비밀번호 찾기 등 본인 확인용)" />
+    </div>
+
+    <div class="box">
+      <input type="text" name="name" placeholder="이름" required />
+      <input type="text" name="birthdate" placeholder="생년월일 8자리" required />
+      <div class="littlebox">
+        <button type="button" class="tel-select">통신사 선택</button>
+
+        <div class="tel-buttons">
+            <button type="button">SK</button>
+            <button type="button">SK 알뜰폰</button>
+            <button type="button">KT</button>
+            <button type="button">KT 알뜰폰</button>
+            <button type="button">LG U+</button>
+            <button type="button">LG U+ 알뜰폰</button>
         </div>
+    </div>
 
-        <div>
-            <div>
-                <input type="text" name="name" id="name" required placeholder="이름">
+    <div class="littlebox">
+        <div class="radio-row">
+            <div class="radio-group">
+              <input type="radio" name="gender" id="male" value="남자" required>
+              <label for="male">남자</label>
+          
+              <input type="radio" name="gender" id="female" value="여자" required>
+              <label for="female">여자</label>
             </div>
-
-            <div>
-                <input type="text" name="birthdate" required placeholder="생년월일 8자리">
+          
+            <div class="radio-group">
+              <input type="radio" name="nation" id="korean" value="내국인" required>
+              <label for="korean">내국인</label>
+          
+              <input type="radio" name="nation" id="foreigner" value="외국인" required>
+              <label for="foreigner">외국인</label>
             </div>
+          </div>
+    </div>
+      
+    </div>
 
-            <div>
-                <button type="button">통신사 선택</button>
-            </div>
-
-            <ul>
-                <li><button type="button">SKT</button></li>
-                <li><button type="button">KT</button></li>
-                <li><button type="button">LG U+</button></li>
-                <li><button type="button">SKT 알뜰폰</button></li>
-                <li><button type="button">KT 알뜰폰</button></li>
-                <li><button type="button">LG U+ 알뜰폰</button></li>
-            </ul>
-
-            <ul>
-                <li><input type="radio" name="gender" value="male" required> 남자</li>
-                <li><input type="radio" name="gender" value="female" required> 여자</li>
-            </ul>
-
-            <ul>
-                <li><input type="radio" name="nationality" value="korean" required> 내국인</li>
-                <li><input type="radio" name="nationality" value="foreigner" required> 외국인</li>
-            </ul>
-
-            <div>
-                <input type="text" name="phonenumber" id="phonenumber" required placeholder="전화번호">
-            </div>
-
-            <div>
-                <button type="submit">제출
-                </button>
-            </div>
-        </div>
-    </form>
+    <input type="tel" name="phone" placeholder="전화번호" required />
+    <button type="submit" class="submit-btn">인증요청</button>
+  </form>
 </body>
 </html>
