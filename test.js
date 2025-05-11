@@ -1,15 +1,14 @@
 // test.js
-let wrap = document.createElement('div');
-wrap.id = "wrap";
+import axios from "axios";
 
-wrap.innerHTML = `
-  <form id="login-form">
-    <label for="user-id">username</label><br />
-    <input type="text" id="user-id" name="user-id" /><br />
-    <label for="user-pw">password </label><br />
-    <input type="password" id="user-pw" name="user-pw" /><br />
-    <button type="submit">submit</button>
-  </form>
-`;
+const option = {
+    url: 'https://dummyjson.com/todos/1',
+    method: 'GET',
+    headers: { // ✅ headers가 아니라 header => headers 로 수정해야 함
+        "Content-Type": "application/json"
+    }
+};
 
-document.body.appendChild(wrap);
+axios(option)
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error));
